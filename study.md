@@ -28,3 +28,4 @@
 - ViewPath 중복(prefix:`WEB-INF/views/`, suffix:`.jsp`)
 - 항상 request, response를 사용하지 않지만 매번 둘다 받아옴
 - 공통 처리가 어려움
+- 해당 단점을 보완하기 위해서 프론트 컨트롤러 패턴을 도입하게 됨
