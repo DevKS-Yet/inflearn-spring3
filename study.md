@@ -34,3 +34,8 @@
 
 ### 프론트 컨트롤러 도입 - v1
 - 요청 -> `Front Controller` -> `mapping` -> `Controller` -> `JSP`
+- 요청이 들어올 때 공통적으로 실행되는 메서드 제거
+
+### View 분리 - v2
+- 요청 -> `Front Controller` -> `mapping` -> `Controller` -> `Front Controller` -> `MyView` -> `JSP`
+- Dispatcher 부분을 따로 클래스로 만들어서 해당 공통 메서드 제거
