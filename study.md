@@ -39,3 +39,10 @@
 ### View 분리 - v2
 - 요청 -> `Front Controller` -> `mapping` -> `Controller` -> `Front Controller` -> `MyView` -> `JSP`
 - Dispatcher 부분을 따로 클래스로 만들어서 해당 공통 메서드 제거
+
+## 2022-02-20
+
+#### 실전에서는 Map을 사용하지 않는다고 했으니 Map을 concurrentMap과 AtomicLong으로 바꾸는 연습
+- 일차적으로 `MemberRepository2`에선 `Map`과 `Long`만 `ConcurrentHashMap`과 `AtomicLong`으로 변경
+- 일차적으로 생각드는 것은 `ConcurrentHashMap`을 사용했을 때 제네릭도 Atomic으로 변경해야하는가? -> 일단은 변경하지 않음. 왜냐면 `ConcurrentHashMap`이 벌써 Serializable를 받고있기 때문에 필요없다고 판단
+- 두 번째로는 AtomicLong을 사용할거라고 하면 `Member` 클래스에 있는 `Long id`도 바꿔야하는가? - 안바꿈. 왜냐면 멤버라는 객체를 만들때 수행되는 작업이지만 여기서는 저장을 눌렀을 시에 수행되게끔 되어있어서 최대한 기본 코드를 따라감. 하지만 객체 안에 만들어두어도 괜찮지 않을까 생각은 듬
