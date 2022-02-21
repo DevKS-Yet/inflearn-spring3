@@ -46,3 +46,10 @@
 - 일차적으로 `MemberRepository2`에선 `Map`과 `Long`만 `ConcurrentHashMap`과 `AtomicLong`으로 변경
 - 일차적으로 생각드는 것은 `ConcurrentHashMap`을 사용했을 때 제네릭도 Atomic으로 변경해야하는가? -> 일단은 변경하지 않음. 왜냐면 `ConcurrentHashMap`이 벌써 Serializable를 받고있기 때문에 필요없다고 판단
 - 두 번째로는 AtomicLong을 사용할거라고 하면 `Member` 클래스에 있는 `Long id`도 바꿔야하는가? - 안바꿈. 왜냐면 멤버라는 객체를 만들때 수행되는 작업이지만 여기서는 저장을 눌렀을 시에 수행되게끔 되어있어서 최대한 기본 코드를 따라감. 하지만 객체 안에 만들어두어도 괜찮지 않을까 생각은 듬
+
+## 2022-02-21
+
+### Model 추가 - v3
+- 요청 -> `Front Controller` -> `mapping` -> `Controller` -> `Front Controller` -> `viewResolver` -> `Front Controller` -> `MyView`
+- 서블릿 종속성 제거(request, response)
+- 뷰 이름 중복 제거(WEB-INF/views)
