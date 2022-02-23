@@ -44,13 +44,24 @@ public class FrontControllerServletV3 extends HttpServlet {
 
         //paramMap
         Map<String, String> paramMap = createParamMap(request);
-        request.getParameterNames().asIterator().forEachRemaining(paramName -> paramMap.put(paramName, request.getParameter(paramName)));
 
         //변수 controller가 null이 아니라면 해당 컨트롤러의 프로세스 실행
         ModelView mv = controller.process(paramMap);// 변수 컨트롤러에 들어가있는 Member~ControllerV2의 process 메서드가 이젠 MyView를 반환함
 
-        new MyView("WEB-INF/views/" + viewName + ".jsp");
-        view.render(request, response);
+        String viewName = mv.getViewName(); // 논리이름 new-form
 
+        MyView view = viewResolver(viewName);
+        view.render(mv.getModel(), request, response);
+
+    }
+
+    private MyView viewResolver(String viewName) {
+        return new MyView("WEB-INF/views/" + viewName + ".jsp");
+    }
+
+    private Map<String, String> createParamMap(HttpServletRequest request) {
+        Map<String, String> paramMap = new HashMap<>();
+        request.getParameterNames().asIterator().forEachRemaining(paramName -> paramMap.put(paramName, request.getParameter(paramName)));
+        return paramMap;
     }
 }

@@ -6,6 +6,8 @@ import java.util.Map;
 public class ModelView {
 
     private String viewName;
+
+    // 이것도 ConcurrentHashMap으로 만들면 좋을까?
     private Map<String, Object> model = new HashMap<>();
 
     public ModelView(String viewName) {
