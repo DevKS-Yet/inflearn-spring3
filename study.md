@@ -53,3 +53,10 @@
 - 요청 -> `Front Controller` -> `mapping` -> `Controller` -> `Front Controller` -> `viewResolver` -> `Front Controller` -> `MyView`
 - 서블릿 종속성 제거(request, response)
 - 뷰 이름 중복 제거(WEB-INF/views)
+
+## 2022-02-24
+
+### 단순하고 실용적인 컨트롤러 - v4
+- `ModelView` 객체를 생성하고 반환하는 점 제거
+- **좋은 프레임워크는 아키텍쳐도 중요하지만, 개발자가 단순하고 편리하게 사용할 수 있어야한다.**
+- 만든 사람이 힘들면 사용하는 사람이 편하다!!!!
