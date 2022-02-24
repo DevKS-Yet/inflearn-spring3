@@ -7,6 +7,7 @@ import java.util.Map;
 
 public class MemberFormControllerV3 implements ControllerV3 {
 
+    // new-form으로 이동
     @Override
     public ModelView process(Map<String, String> paramMap) {
         return new ModelView("new-form");
