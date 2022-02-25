@@ -60,3 +60,12 @@
 - `ModelView` 객체를 생성하고 반환하는 점 제거
 - **좋은 프레임워크는 아키텍쳐도 중요하지만, 개발자가 단순하고 편리하게 사용할 수 있어야한다.**
 - 만든 사람이 힘들면 사용하는 사람이 편하다!!!!
+
+## 2022-02-25
+
+### 유연한 컨트롤러1 - v5
+- 만약 어떤 개발자는 `ControllerV3`를 사용하고 싶고 다른 개발자는 `ControllerV4`로 개발을 하고 싶다면??
+- 어댑터 패턴을 사용하면 해당 문제점을 해결 할 수 있음
+- 어댑터 패턴이란 두개가 서로 안맞을 때 사이에 하나는 껴둠으로 변경 가능
+- 요청 -> `Front Controller` -> `mapping` -> `handler adapter list` -> `handler adapter` -> `handler(controller)` -> `Front Controller` -> `viewResolver` -> `Front Controller` -> `MyView`
+
