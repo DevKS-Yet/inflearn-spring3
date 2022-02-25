@@ -69,3 +69,11 @@
 - 어댑터 패턴이란 두개가 서로 안맞을 때 사이에 하나는 껴둠으로 변경 가능
 - 요청 -> `Front Controller` -> `mapping` -> `handler adapter list` -> `handler adapter` -> `handler(controller)` -> `Front Controller` -> `viewResolver` -> `Front Controller` -> `MyView`
 
+## 2022-02-26
+
+### 정리
+- v1 : 기존 구조를 최대한 유지하면서 프론트 컨트롤러를 도입
+- v2 : 단순 반복되는 뷰 로직 분리
+- v3 : 서블릿 종속성 및 뷰 이름 중복 제거
+- v4 : v3와 거의 비슷하지만 ModelView를 직접 생성 및 반환하지 않도록 인터페이스 제공
+- v5 : 어댑터 패턴 도입하여 프레임워크를 유연하고 확장성 있게 설계
