@@ -77,3 +77,13 @@
 - v3 : 서블릿 종속성 및 뷰 이름 중복 제거
 - v4 : v3와 거의 비슷하지만 ModelView를 직접 생성 및 반환하지 않도록 인터페이스 제공
 - v5 : 어댑터 패턴 도입하여 프레임워크를 유연하고 확장성 있게 설계
+
+## 2022-02-28
+
+### 스프링 .MVC - 시작하기
+- 처음부터 애노테이션이 있지는 않았지만 점차 개발이 되면서 유연한 컨트롤러를 제공하게 됨
+- `@RequestMapping` 기반의 애노테이션 컨트롤러가 등장하면서 스프링의 MVC가 완승
+- `@RequestMapping`
+  - `RequestMappingHandlerMapping`
+  - `RequestMappingHandlerAdapter`
+- 실무에서 99.9% 이 방싱의 컨트롤러를 사용한다.
