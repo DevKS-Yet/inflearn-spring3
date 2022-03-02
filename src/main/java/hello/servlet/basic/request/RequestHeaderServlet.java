@@ -7,19 +7,21 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.Enumeration;
 
+// /request-header로 요청 온 것들 (feat. basic.html)
 @WebServlet(name = "requestHeaderServlet", urlPatterns = "/request-header")
 public class RequestHeaderServlet extends HttpServlet {
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        printStartLine(req);
-        printHeaders(req);
+        // 요청의 구성은 Start Line + Headers + Body로 이루어져있음
+        printStartLine(req);  // Start Line 출력
+        printHeaders(req);  //
         printHeaderUtils(req);
         printEtc(req);
     }
 
     // drag(ctrl + shift + alt + t)
+    // 요청 스타트 라인 출력
     private void printStartLine(HttpServletRequest req) {
         System.out.println("--- REQUEST-LINE - start ---");
 
@@ -35,6 +37,7 @@ public class RequestHeaderServlet extends HttpServlet {
         System.out.println();
     }
 
+    // 요청 헤더 내부 출력
     private void printHeaders(HttpServletRequest req) {
         System.out.println("--- Headers - start ---");
 
@@ -46,12 +49,14 @@ public class RequestHeaderServlet extends HttpServlet {
 //        }
 
         // 이건 현대 스타일 (아씨... 람다 필요없다매....)
-        req.getHeaderNames().asIterator().forEachRemaining(headerName -> System.out.println("headerName = " + headerName));
+        // 요청의 headerNames를 불러와서 Iterator에 집어넣은 후 for문으로 돌리며 출력
+        req.getHeaderNames().asIterator().forEachRemaining(headerName -> System.out.println("headerName = " + headerName + " : " + req.getHeader(headerName)));
 
         System.out.println("--- Headers - end ---");
         System.out.println();
     }
 
+    // Request Headers에서 원하는 내용만 출력
     private void printHeaderUtils(HttpServletRequest req) {
         System.out.println("--- Header 편의 조회 start ---");
         System.out.println("[Host 편의 조회]");
