@@ -9,12 +9,14 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+// /response-header로 요청 온 것들 (feat. basic.html)
 @WebServlet(name = "responseHeaderServlet", urlPatterns = "/response-header")
 public class ResponseHeaderServlet extends HttpServlet {
 
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
+        // response status code값 설정
         //[status-line]
         resp.setStatus(HttpServletResponse.SC_OK);
         //resp.setStatus(HttpServletResponse.SC_BAD_REQUEST);

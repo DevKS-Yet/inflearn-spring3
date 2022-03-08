@@ -14,6 +14,8 @@ import java.util.Enumeration;
  * http://localhost:8080/request-param?username=hello&age=20&username=hello2
  *
  */
+
+// /request-param으로 요청 온 것들 (feat. basic.html)
 @WebServlet(name = "requestParamServlet", urlPatterns= "/request-param")
 public class RequestParamServlet extends HttpServlet {
 

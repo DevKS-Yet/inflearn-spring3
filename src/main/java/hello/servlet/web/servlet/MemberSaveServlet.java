@@ -12,6 +12,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 //회원 가입 서블릿
+// /servlet/members/save으로 요청 온 것들 (feat. MemberFormServlet.java)
 @WebServlet(name = "memberSaveServlet", urlPatterns = "/servlet/members/save")
 public class MemberSaveServlet extends HttpServlet {
 
@@ -21,8 +22,8 @@ public class MemberSaveServlet extends HttpServlet {
     protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         System.out.println("MemberSaveServlet.service");
-        String username = request.getParameter("username");
-        int age = Integer.parseInt(request.getParameter("age"));
+        String username = request.getParameter("username");  // username의 파라미터 값
+        int age = Integer.parseInt(request.getParameter("age"));  // age의 파라미터 값. int형으로 변환
 
         Member member = new Member(username, age);
         memberRepository.save(member);

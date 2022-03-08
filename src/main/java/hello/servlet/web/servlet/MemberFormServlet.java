@@ -1,7 +1,5 @@
 package hello.servlet.web.servlet;
 
-import hello.servlet.domain.member.MemberRepository;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -11,10 +9,9 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 //회원 폼 서블릿
+// /servlet/members/new-form으로 요청 온 것들 (feat. index.html)
 @WebServlet(name = "memberFormServlet", urlPatterns = "/servlet/members/new-form")
 public class MemberFormServlet extends HttpServlet {
-
-    private final MemberRepository memberRepository = MemberRepository.getInstance();
 
     @Override
     protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
